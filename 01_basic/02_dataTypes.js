@@ -57,3 +57,24 @@ console.table([typeof(hero),typeof(obj),typeof(myFunction)]);
 // │    1    │  'object'  │
 // │    2    │ 'function' │-->object function
 // └─────────┴────────────┘
+
+/******Diffrent Memeory */
+
+//Stack (primitive)-->call by value,Heap (Non primitive)-->call by refrence
+
+//stack
+let data1="Rohit";
+let data2=data1 //ek copy bana hai
+data2="Mohit" //this change will not reflect in data1
+console.table([data1,data2]);
+
+//Heap
+let obj1={
+    name:"Roit",
+    email:"123@gmail.com"
+}
+
+let obj2=obj1 //two diffrent pointer pointing to same object store in heap
+//if we amke changes in one it will get reflected in anoter
+obj2.name="Mohit";
+console.table([obj1,obj2]);
