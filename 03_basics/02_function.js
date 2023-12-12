@@ -37,3 +37,8 @@ const user={
     age:21,
 }
 
+function temp(tempObject){
+    return `Hello ${tempObject.name} your age is ${tempObject.age}.`
+}
+
+console.log(temp(user));
