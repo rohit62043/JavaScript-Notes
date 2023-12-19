@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit-Remove Element in a DOM</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+function addLangauge(langName){
+    const li = document.createElement('li');
+    li.innerText=`${langName}`;
+    document.querySelector('.language').appendChild(li);
+}
+
+function addOptimally(langName){
+    const li = document.createElement('li');
+    li.appendChild(document.createTextNode(langName));
+    document.querySelector(".language").appendChild(li);
+}
+addLangauge("Golang");
+addOptimally("Python");
+addOptimally("C++");
+addOptimally("java");
+addOptimally("javaScript");
+
+//Edit
+const secondLang=document.querySelector("li:nth-child(2)")
+console.log(secondLang.outerText);
+console.log(secondLang.innerHTML);
+secondLang.outerHTML=`<ul>
+                        <li> golang 1</li>
+                        <li> golang 2</li>
+                      </ul>`
+console.log(secondLang.innerHTML);
+// The innerHTML and outerHTML DOM properties have many similarities, but one key difference. 
+// The innerHTML property captures the HTML contents of an element. In contrast, the outerHTML
+//  property captures the HTML that represents the element itself and its content.
+
+const thirdLang=document.querySelector("li:nth-child(3)")
+const newli=document.createElement('li')
+newli.textContent="Mojo"
+thirdLang.replaceWith(newli);
+
+const firstLang=document.querySelector("li:first-child");
+firstLang.outerHTML=`<li>TypeScript</li>`
+
+//remove
+const lastLang=document.querySelector('li:last-child')
+console.log(lastLang.outerText);
+lastLang.remove()
+
+</script>
+</html>
