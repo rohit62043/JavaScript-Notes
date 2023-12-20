@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Html Events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" /*onclick="alert('Owl!!!!!!!!');"*/></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+// document.getElementById("owl").onclick=function(){
+//     alert("OWLLLL")
+// };
+
+//Best Way
+// document.getElementById("owl").addEventListener('click',function(e){
+//     console.log(e.timeStamp);
+// },false) //This  third argument is used for event bubbling and event capturing
+// //false-->Event bubbling-->inside se outside-->we can also prevent it by e.stopPropagation()
+// //true--->Event capturing-->outside to inside
+
+// // let see example of both
+// // 1.Event Bubbling
+// document.getElementById("images").addEventListener('click',()=>{
+//     console.log("Ul Clicked");
+// },false)
+
+// document.getElementById("owl").addEventListener('click',(e)=>{
+//     console.log("Owl Clicked");
+//     //WE can aslo prevent event bubbling
+//    e.stopImmediatePropagation()
+//    // e.stopPropagation()
+// },false)
+// document.getElementById("owl").addEventListener('click',(e)=>{
+//     console.log("Owl Clicked 2");
+//     //WE can aslo prevent event bubbling
+//    e.stopImmediatePropagation()
+//   //  e.stopPropagation()
+// },false)
+
+//Diffrence between stopPopagation and stopImmediatePropagation-->they both prevent eventBubbling-->but the main diffrence is if there are more then one event on same element the stopImmediate will prevent that also
+//Import property of event object to learn
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+//let us make a mini project-->we have to remove the image we tap
+// document.querySelector("#images").addEventListener('click',(e)=>{
+//    console.log(e.target.parentNode);
+//    let removeIt=e.target.parentNode;
+//    //removeIt.parentNode.removeChild(removeIt);
+//    removeIt.remove();
+
+// },false) //problem hai
+document.querySelector("#images").addEventListener('click',(e)=>{
+   console.log(e.target.parentNode);
+   let removeIt=e.target;
+   if(removeIt.tagName==="IMG"){
+       removeIt.parentNode.remove();
+   }
+},false)
+
+</script>
+</html>
