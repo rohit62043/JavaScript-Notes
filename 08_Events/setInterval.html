@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai Aur JS Episode No 0</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    let count=1;
+    const changeText=function(){
+        document.getElementsByTagName('h1')[0].innerText=`Chai Aur JS Episode No ${count}`;
+        count++;
+    }
+    
+    const startButton=document.getElementById('start');
+    let changeMe;
+    startButton.addEventListener('click',()=>{
+        if(!changeMe){
+         changeMe=setInterval(changeText,1000)
+        }
+        console.log("START");
+    })
+    const stopButton=document.getElementById('stop');
+    stopButton.addEventListener('click',()=>{
+        clearInterval(changeMe);
+        changeMe=null;
+        console.log("STOPPED");
+    })
+</script>
+</html>
