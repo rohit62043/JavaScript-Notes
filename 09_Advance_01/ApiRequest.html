@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMLHttpRequest</title>
+</head>
+<body>
+    The XMLHttpRequest.readyState property returns the state an XMLHttpRequest client is in. An XHR client exists in one of the following states:
+
+Value	State	Description
+0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete.
+</body>
+<script>
+    const requestUrl="https://api.github.com/users/rohit62043"
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET',requestUrl);
+    xhr.onreadystatechange=function(){
+        console.log(xhr.readyState);
+        if(xhr.readyState===4){
+            const data=JSON.parse(this.responseText)
+            console.log(data)
+        }
+    }
+    // console.log(xhr.readyState);
+    xhr.send()
+</script>
+</html>
+
+
+//Note:
+//Kya console.log JS ka part hai-->technecilly hai bhi nhi bhi-->actually me wo browser ka debugging tool hai-->run time hai javascript ka wo inject karta hai-
+//console or bahut sara api jaise ki document  core JS ka part nhi hai-->javascript ka jo run time hai wo inject karta hai
+//JS chalta kaise hai-->run time enviroment hota hai jaise ki nodejs, browser bhi chalata hai
+//nodejs bhi V8 engine(written in C++) ka (bahut sare engine hota hai )
+//core langauge c++ hai JS wrapper hai 
+//YE jo V8 engine hai ye sare debugging tool like cosole kuch API acces provide karta hai so aap kaam kar pao i.e. actual implementation yahi hai runtime pe inject hota hai
