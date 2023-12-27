@@ -126,7 +126,7 @@ fetch('https://api.github.com/users/rohit62043').then((response)=>{
 })
 
 
-//Note: we will observe that fetch wale ka result sabse phle aa rha hoga balji settime out ka code uper hai-->Q ki fetch ka queue ka priority jyada hota hai settimeout or setInterval wale queue se 
+//Note: we will observe that fetch wale ka result sabse phle aa rha hoga balji settime out ka code uper hai-->Q ki fetch ka queue(micro task queue or fetch queue) ka priority jyada hota hai settimeout or setInterval wale queue se 
 // Note:json() is asynchronous and returns a Promise object that resolves to a JavaScript object. JSON. parse() is synchronous can parse a string to (a) JavaScript object(s)
 // Note:A fetch() promise only rejects when a network error is encountered (which is usually when there's a permissions issue or similar). A fetch() promise does not reject on HTTP errors (404, etc.). Instead, a then() handler must check the Response.ok and/or Response.status properties.
 
